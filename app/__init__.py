@@ -1,8 +1,6 @@
 from typer import Typer
-from .config import create_storage_dir, create_database
+from .module.account import account
 
-
-create_storage_dir()
-create_database()
 
 app = Typer()
+app.add_typer(account, name='account')
