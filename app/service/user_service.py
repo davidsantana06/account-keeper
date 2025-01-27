@@ -6,25 +6,25 @@ from app.form import UserForm
 
 class UserService:
     _ZOOM_CHOICES = [
-        ("zoom-0", "Pé no Chão (100%)"),
-        ("zoom-1", "Horizonte Próximo (110%)"),
-        ("zoom-2", "Alcance Amplo (120%)"),
-        ("zoom-3", "Foco Cirúrgico (130%)"),
-        ("zoom-4", "Perspectiva de Águia (140%)"),
-        ("zoom-5", "Panorama Celestial (150%)"),
+        ("zoom-0", "Pé no Solo (100%)"),
+        ("zoom-1", "Vista do Fórum (110%)"),
+        ("zoom-2", "Olhar do Legado (120%)"),
+        ("zoom-3", "Visão do Centurião (130%)"),
+        ("zoom-4", "Olho de Júpiter (140%)"),
+        ("zoom-5", "Horizonte do Coliseu (150%)"),
     ]
 
     @staticmethod
     def _choice_name() -> str:
         return choice(
             [
-                "Arara Viajante",
-                "Gavião Desbravador",
-                "Jaguar Caçador",
-                "Lobo Pioneiro",
-                "Sabiá Nômade",
-                "Tatu Viajante",
-                "Tucano Explorador",
+                "Águia Viajante",
+                "Cavalo Desbravador",
+                "Cão Caçador",
+                "Galo Pioneiro",
+                "Leão Nômade",
+                "Ovelha Viajante",
+                "Pato Explorador",
             ]
         )
 
