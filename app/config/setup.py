@@ -1,6 +1,7 @@
 from flask import Flask
 from os import makedirs
 
+from app.database import *
 from app.extension import database
 from app.facade import FlashFacade, TemplateFacade, URLFacade
 
