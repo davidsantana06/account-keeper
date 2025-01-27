@@ -1,3 +1,12 @@
+:root {
+  --bulma-primary-h: 45deg;
+  --bulma-primary-s: 87%;
+  --bulma-primary-l: 57%;
+  --bulma-link-h: 0deg;
+  --bulma-link-s: 65%;
+  --bulma-link-l: 51%;
+}
+
 .is-bottom-0 {
   bottom: 0;
 }
