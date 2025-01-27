@@ -4,6 +4,7 @@ from os import makedirs
 from app.database import *
 from app.extension import database
 from app.facade import FlashFacade, TemplateFacade, URLFacade
+from app.view import HomeView
 
 from .parameter import Parameter
 from .path import Path
@@ -27,10 +28,12 @@ class Setup:
             database.create_all()
 
     @staticmethod
-    def create_user(app: Flask) -> None: ...
+    def create_user(app: Flask) -> None:
+        with app.app_context(): ...
 
     @staticmethod
-    def register_views(app: Flask) -> None: ...
+    def register_views(app: Flask) -> None:
+        HomeView.register(app)
 
     @staticmethod
     def inject_jinja_globals(app: Flask) -> None:
