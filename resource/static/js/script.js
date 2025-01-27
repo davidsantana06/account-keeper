@@ -1,5 +1,11 @@
 import { turnOnCardRedirect } from "./_card.js";
 import {
+  activateIMask,
+  turnOnDirtyFormCheck,
+  turnOnFormAsyncRequest,
+  turnOnPasswordVisibilityToggle,
+} from "./_form.js";
+import {
   activateCurrentNavbarItem,
   turnOnNavbarMenuToggle,
 } from "./_navbar.js";
@@ -12,6 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // card _
   turnOnCardRedirect();
+
+  // form _
+  activateIMask();
+  turnOnPasswordVisibilityToggle();
+  turnOnDirtyFormCheck();
+  turnOnFormAsyncRequest();
 
   // notification _
   activateNotificationFadeOut();
