@@ -1,3 +1,4 @@
+import { turnOnCardRedirect } from "./_card.js";
 import {
   activateCurrentNavbarItem,
   turnOnNavbarMenuToggle,
@@ -8,6 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // navbar _
   activateCurrentNavbarItem();
   turnOnNavbarMenuToggle();
+
+  // card _
+  turnOnCardRedirect();
 
   // notification _
   activateNotificationFadeOut();
