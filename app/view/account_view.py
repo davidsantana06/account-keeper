@@ -1,6 +1,5 @@
 from flask import request
 from flask_classful import FlaskView
-from http import HTTPStatus
 
 from app.facade import FlashFacade, ResponseFacade, URLFacade
 from app.form import AccountForm
@@ -21,7 +20,7 @@ class AccountView(FlaskView):
         account = AccountService.create(form)
         FlashFacade.append(f"Conta adicionada", "success")
         return ResponseFacade.as_async_redirect(
-            URLFacade.for_view("account:update", id=account.id), HTTPStatus.CREATED
+            URLFacade.for_view("account:update", id=account.id)
         )
 
     def update(self, id: int):
