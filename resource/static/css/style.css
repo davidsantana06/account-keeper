@@ -11,6 +11,10 @@
   bottom: 0;
 }
 
+.is-floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
 .is-right-0 {
   right: 0;
 }
@@ -62,5 +66,17 @@
 
   .is-align-items-strecht-mobile {
     align-items: stretch !important;
+  }
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

@@ -35,6 +35,18 @@
                     </div>
                 {% endfor %}
             </div>
+        {% else %}
+            <div class="is-flex is-flex-direction-column is-align-items-center pb-3">
+                <figure class="image is-96x96 mb-2">
+                    <img
+                        class="is-floating"
+                        src="{{ static('img:i-jupiter.png') }}"
+                    />
+                </figure>
+                <h2 class="title is-6 is-italic has-text-weight-medium">
+                    Sine monumentis
+                </h2>
+            </div>
         {% endfor %}
         <a
             class="
