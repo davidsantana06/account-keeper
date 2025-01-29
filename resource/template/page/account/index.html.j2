@@ -14,7 +14,7 @@
                                 <figure class="image is-64x64 is-flex-shrink-0 mr-5">
                                     <img
                                         class="is-rounded"
-                                        src="{{ static('img:i-template.png') }}"
+                                        src="{{ static('img:i-group-' ~ account.group ~ '.png') }}"
                                     />
                                 </figure>
                                 <div>
@@ -40,18 +40,22 @@
             class="
                 button
                 is-primary
-                is-rounded
+                is-shadow
                 is-position-fixed
                 is-right-0
                 is-bottom-0
                 has-text-weight-semibold
                 px-5
-                mr-5
-                mb-5
+                m-5
             "
             href="{{ view('account:create') }}"
         >
-            + Adicionar
+            <div class="is-flex is-align-items-center">
+                <figure class="image is-16x16 mr-4">
+                    <img src="{{ static('img:i-add.png') }}" />
+                </figure>
+                Adicionar
+            </div>
         </a>
     </main>
 {% endblock %}

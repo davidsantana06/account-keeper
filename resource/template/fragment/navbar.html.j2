@@ -4,7 +4,7 @@
     <div class="navbar-brand">
         <div class="navbar-item">
             <figure class="image">
-                <img src="{{ static('img:i-template.png') }}" />
+                <img src="{{ static('img:i-logo-light.png') }}" />
             </figure>
         </div>
         <a
@@ -19,7 +19,7 @@
     </div>
     <div class="navbar-menu">
         <div class="navbar-end">
-            {{ navbar_item('Início', 'https://google.com') }}
+            {{ navbar_item('Início', view('home:index')) }}
             {{ navbar_item('Contas', view('account:index')) }}
             {{ navbar_item('Perfil', view('user:index')) }}
         </div>
