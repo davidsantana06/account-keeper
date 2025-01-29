@@ -13,15 +13,25 @@
             data-method="put"
         >
             <div class="box p-5 mb-5">
-                {{ right_tag('Informações básicas') }}
-                {{ form_field(form.name) }}
+                {{ right_tag('Identificação') }}
+                {{ form_field(form.name, margin_bottom=0) }}
             </div>
             <div class="box p-5 mb-5">
                 {{ right_tag('Preferências') }}
                 {{ form_field(
+                    form.password_complexity,
+                    encapsulation='select',
+                    widget='select',
+                    help=(
+                        'A complexidade escolhida influencia os requisitos das senhas ' ~
+                        ' geradas para as contas.'
+                    )
+                )}}
+                {{ form_field(
                     form.zoom,
                     encapsulation='select',
                     widget='select',
+                    margin_bottom=0
                 )}}
             </div>
             {{ form_action(

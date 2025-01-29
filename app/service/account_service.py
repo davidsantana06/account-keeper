@@ -2,6 +2,8 @@ from app.database import Account, Accounts
 from app.facade import PasswordFacade
 from app.form import AccountForm
 
+from .user_service import UserService
+
 
 class AccountService:
     @staticmethod
@@ -32,9 +34,10 @@ class AccountService:
         Account.save(account)
 
     @classmethod
-    def generate_password(cls, id: int, complexity: PasswordFacade.Complexity) -> None:
+    def generate_password(cls, id: int) -> None:
+        user = UserService.get()
         account = cls.get_one_by_id(id)
-        account.password = PasswordFacade.generate(complexity)
+        account.password = PasswordFacade.generate(user.password_complexity)
         Account.save(account)
 
     @classmethod

@@ -9,5 +9,6 @@ class UserForm(FlaskForm):
         render_kw={"placeholder": "Nome"},
         validators=[DataRequired(), Length(min=1, max=60)],
     )
+    password_complexity = SelectField(label="Complexidade das senhas")
     zoom = SelectField(label="Escala de visualização")
     submit = SubmitField(label="Salvar", render_kw={"disabled": True})

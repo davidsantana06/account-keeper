@@ -32,7 +32,7 @@ class AccountView(FlaskView):
 
     @method("patch")
     def generate_password(self, id: int):
-        AccountService.generate_password(id, "high")
+        AccountService.generate_password(id)
         FlashFacade.append("Senha gerada", "success")
         return ResponseFacade.as_async_redirect(
             URLFacade.for_view("account:update", id=id)

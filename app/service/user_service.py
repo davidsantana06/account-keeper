@@ -1,10 +1,17 @@
 from random import choice
 
 from app.database import User
+from app.facade import PasswordFacade
 from app.form import UserForm
 
 
 class UserService:
+    _PASSWORD_COMPLEXITY_CHOICES = [
+        (PasswordFacade.LOW_COMPLEXITY, "Levis (Baixa)"),
+        (PasswordFacade.MEDIUM_COMPLEXITY, "Modicus (Média)"),
+        (PasswordFacade.HIGH_COMPLEXITY, "Perplexus (Alta)"),
+    ]
+
     _ZOOM_CHOICES = [
         ("zoom-0", "Pé no Solo (100%)"),
         ("zoom-1", "Vista do Fórum (110%)"),
@@ -32,7 +39,8 @@ class UserService:
     def create(cls) -> User:
         user = User()
         user.name = cls._choice_name()
-        user.zoom = cls._ZOOM_CHOICES[0][1]
+        user.password_complexity = cls._PASSWORD_COMPLEXITY_CHOICES[0][0]
+        user.zoom = cls._ZOOM_CHOICES[0][0]
         User.save(user)
         return user
 
@@ -43,6 +51,7 @@ class UserService:
     @classmethod
     def fill(cls, form: UserForm) -> None:
         user = cls.get()
+        form.password_complexity.choices = cls._PASSWORD_COMPLEXITY_CHOICES
         form.zoom.choices = cls._ZOOM_CHOICES
         form.process(obj=user)
 
