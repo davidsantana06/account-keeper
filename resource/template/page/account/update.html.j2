@@ -14,6 +14,12 @@
         </figure>
         <div class="buttons are-small is-right">
             {{ request_button(
+                image=static('img:i-generate-password.png'),
+                text='Gerar senha',
+                action=view('account:generate_password', id=account.id),
+                method='patch'
+            ) }}
+            {{ request_button(
                 image=static('img:i-delete.png'),
                 text='Excluir',
                 action=view('account:delete', id=account.id),

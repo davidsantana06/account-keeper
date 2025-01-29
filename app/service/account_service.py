@@ -1,4 +1,5 @@
 from app.database import Account, Accounts
+from app.facade import PasswordFacade
 from app.form import AccountForm
 
 
@@ -28,6 +29,12 @@ class AccountService:
     def update(cls, id: int, form: AccountForm) -> None:
         account = cls.get_one_by_id(id)
         form.populate_obj(account)
+        Account.save(account)
+
+    @classmethod
+    def generate_password(cls, id: int, complexity: PasswordFacade.Complexity) -> None:
+        account = cls.get_one_by_id(id)
+        account.password = PasswordFacade.generate(complexity)
         Account.save(account)
 
     @classmethod
