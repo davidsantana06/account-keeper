@@ -1,6 +1,6 @@
 {% from macro('banner_header') import banner_header %}
 
-{% extends layout ('base') %}
+{% extends layout('base') %}
 
 {% block content %}
     <main class="container is-max-tablet px-5 my-5">
@@ -11,7 +11,7 @@
             <p class="subtitle is-6">
                 Estamos em nossa
                 {{ "%.0fª" | format(user.age_in_weeks + 1) }}
-                batalha nos Ludi Romani
+                batalha nos <b class="is-italic">Ludi Romani</b>
             </p>
         </div>
         <div
