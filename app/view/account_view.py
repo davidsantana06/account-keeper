@@ -18,7 +18,7 @@ class AccountView(FlaskView):
     def post(self):
         form = AccountForm(request.form)
         account = AccountService.create(form)
-        FlashFacade.append("Conta adicionada", "success")
+        FlashFacade.append("A conta foi adicionada ao catálogo", "success")
         return ResponseFacade.as_async_redirect(
             URLFacade.for_view("account:update", id=account.id)
         )
@@ -30,23 +30,23 @@ class AccountView(FlaskView):
             "account:update", {"account": account, "form": form}
         )
 
-    @method("patch")
-    def generate_password(self, id: int):
-        AccountService.generate_password(id)
-        FlashFacade.append("Senha gerada", "success")
+    def put(self, id: int):
+        form = AccountForm(request.form)
+        AccountService.update(id, form)
+        FlashFacade.append("As informações da conta foram atualizadas", "info")
         return ResponseFacade.as_async_redirect(
             URLFacade.for_view("account:update", id=id)
         )
 
-    def put(self, id: int):
-        form = AccountForm(request.form)
-        AccountService.update(id, form)
-        FlashFacade.append("Conta atualizada", "info")
+    @method("patch")
+    def generate_password(self, id: int):
+        AccountService.generate_password(id)
+        FlashFacade.append("A senha da conta foi atualizada", "success")
         return ResponseFacade.as_async_redirect(
             URLFacade.for_view("account:update", id=id)
         )
 
     def delete(self, id: int):
         AccountService.delete(id)
-        FlashFacade.append("Conta removida", "info")
+        FlashFacade.append("A conta foi excluída do catálogo", "info")
         return ResponseFacade.as_async_redirect(URLFacade.for_view("account:index"))

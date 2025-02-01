@@ -18,5 +18,5 @@ class UserView(FlaskView):
     def put(self):
         form = UserForm(request.form)
         UserService.update(form)
-        FlashFacade.append("Perfil atualizado", "info")
+        FlashFacade.append("O perfil foi atualizado", "info")
         return ResponseFacade.as_async_redirect(URLFacade.for_view("user:index"))
