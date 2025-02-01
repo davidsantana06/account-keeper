@@ -11,6 +11,9 @@ class Path:
     STATIC_DIR = path.join(RESOURCE_DIR, "static")
     """ /resource/static """
 
+    ICON_FILE = path.join(STATIC_DIR, "img", "i-logo-dark.png")
+    """ /resource/static/img/b-logo-dark.png """
+
     TEMPLATE_DIR = path.join(RESOURCE_DIR, "template")
     """ /resource/template """
 

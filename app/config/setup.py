@@ -1,5 +1,6 @@
 from flask import Flask
 from os import makedirs
+import webview
 
 from app.database import *
 from app.extension import database
@@ -56,3 +57,8 @@ class Setup:
                 "user": UserService.get(),
             }
         )
+
+    @staticmethod
+    def open_window(app: Flask) -> None:
+        webview.create_window("Account Keeper", app, min_size=(500, 500))
+        webview.start(icon=Path.ICON_FILE)

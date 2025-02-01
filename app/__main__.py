@@ -11,5 +11,4 @@ if __name__ == "__main__":
     Setup.create_user(app)
     Setup.register_views(app)
     Setup.inject_jinja_globals(app)
-
-    app.run(debug=True)
+    Setup.open_window(app)
