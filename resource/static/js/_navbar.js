@@ -1,3 +1,10 @@
+/**
+ * Activates the current navbar item by comparing the URL path with the
+ * `href` attribute of each navbar item. If a match (exact or partial)
+ * is found, the navbar item gets additional styling classes applied.
+ *
+ * @returns {void}
+ */
 export const activateCurrentNavbarItem = () => {
   const urlPath = window.location.pathname;
   const navbarItems = document.querySelectorAll(".navbar-item");
@@ -23,6 +30,13 @@ export const activateCurrentNavbarItem = () => {
   }
 };
 
+/**
+ * Toggles the visibility of the navbar menu when the navbar burger is
+ * clicked. The corresponding menu is shown or hidden by toggling the
+ * `is-active` class.
+ *
+ * @returns {void}
+ */
 export const turnOnNavbarMenuToggle = () => {
   const navbarBurgers = document.querySelectorAll(".navbar-burger");
 
