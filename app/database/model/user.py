@@ -10,8 +10,9 @@ class User(database.Model, Model, TimestampMixin):
     name = Column(String, nullable=False)
 
     # preference _
-    zoom = Column(String, nullable=False)
+    first_view = Column(String, nullable=False)
     password_complexity = Column(String, nullable=False)
+    zoom = Column(String, nullable=False)
 
     @classmethod
     def find_first(cls) -> "User":
