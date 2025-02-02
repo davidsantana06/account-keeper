@@ -14,7 +14,7 @@ class PasswordFacade:
     @classmethod
     def _get_specs(cls, complexity: Complexity) -> tuple[str, int]:
         return {
-            cls.LOW_COMPLEXITY: (letters, 12),
+            cls.LOW_COMPLEXITY: (letters + digits, 12),
             cls.MEDIUM_COMPLEXITY: (letters + digits, 18),
             cls.HIGH_COMPLEXITY: (letters + digits + punctuation, 24),
         }[complexity]
