@@ -1,5 +1,4 @@
 from flask import Flask
-from os import makedirs
 import webview
 
 from app.database import *
@@ -18,10 +17,6 @@ class Setup:
         app.config.from_object(Parameter)
         app.static_folder = Path.STATIC_DIR
         app.template_folder = Path.TEMPLATE_DIR
-
-    @staticmethod
-    def create_storage_dir() -> None:
-        makedirs(Path.STORAGE_DIR, exist_ok=True)
 
     @staticmethod
     def initialize_database(app: Flask) -> None:
