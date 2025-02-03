@@ -8,7 +8,14 @@
     >
         <div class="box p-5">
             {{ form_field(form.name) }}
-            {{ form_field(form.description, widget='textarea') }}
+            {{ form_field(
+                form.notes,
+                widget='textarea',
+                help=(
+                    'Adicione uma nota, um lembrete ou qualquer outra ' ~ 
+                    'informação que desejar.'
+                )
+            ) }}
             {{ form_field(form.username) }}
             <div class="columns">
                 <div class="column is-full is-7">

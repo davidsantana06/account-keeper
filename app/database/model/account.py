@@ -9,7 +9,7 @@ Accounts = list["Account"]
 class Account(database.Model, Model, TimestampMixin):
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(String, nullable=False)
-    description = Column(String)
+    notes = Column(String)
     username = Column(String)
     email = Column(String)
     phone = Column(String)

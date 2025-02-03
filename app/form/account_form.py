@@ -10,10 +10,10 @@ class AccountForm(FlaskForm):
         render_kw={"placeholder": "Nome"},
         validators=[DataRequired(), Length(min=1, max=60)],
     )
-    description = TextAreaField(
-        label="Descrição",
+    notes = TextAreaField(
+        label="Notas",
         render_kw={"placeholder": "Descrição (opcional)"},
-        validators=[Optional(), Length(max=150)],
+        validators=[Optional(), Length(max=900)],
     )
     username = StringField(
         label="Usuário",
