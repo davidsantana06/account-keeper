@@ -10,9 +10,13 @@
 ![Bulma](https://img.shields.io/badge/bulma-00D0B1?style=for-the-badge&logo=bulma&logoColor=white)
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 
+### 🖥️ Preparação do Ambiente
+
+O ambiente ideal para a execução do sistema pode variar conforme as necessidades de cada pessoa. No geral, recomenda-se o uso de um computador ou notebook dedicado exclusivamente a essa finalidade ou, alternativamente, uma unidade de armazenamento externa, como um pendrive ou HD. Em qualquer caso, a segurança deve ser prioridade. Para isso, utilize senhas robustas, criptografia adicional e mantenha o dispositivo protegido contra quaisquer mãos que não sejam as suas.
+
 ### 🛠️ Instalação e Execução
 
-O sistema foi desenvolvido utilizando **Python 3.12**, sendo recomendada a utilização dessa versão para garantir compatibilidade.
+A aplicação foi desenvolvida em **Python 3.12**, sendo recomendada a utilização dessa versão para garantir compatibilidade.
 
 #### 1️⃣ Clonar o Repositório
 
@@ -40,6 +44,4 @@ python -m app
 
 ### ⚖️ Licença
 
-Este repositório é licenciado sob a **Licença MIT**, permitindo o uso e a modificação do código conforme desejado, desde que seja dado o devido crédito.
-
-As imagens utilizadas neste projeto pertencem a diferentes fontes e estão sujeitas a outros tipos de licença.
+Este repositório é licenciado sob a **Licença MIT**, permitindo o uso e a modificação do código conforme desejado. As imagens utilizadas neste projeto pertencem a diferentes fontes e estão sujeitas a outros tipos de licença.
