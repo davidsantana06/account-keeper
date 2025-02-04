@@ -1,4 +1,4 @@
-<img src="./resource/static/img/b-logo.png" alt="Account Keeper">
+<img src="./resource/static/img/b-logo.png" alt="Account Keeper" style="width: 100%">
 
 <b>Account Keeper</b> é um aplicativo desktop totalmente offline, desenvolvido para oferecer segurança e praticidade no gerenciamento de contas e senhas. Inspirado na Antiga Roma, sua interface traz ilustrações e referências históricas, proporcionando uma experiência imersiva.
 
@@ -12,7 +12,9 @@
 
 ### 🖥️ Preparação do Ambiente
 
-O ambiente ideal para a execução do sistema pode variar conforme as necessidades de cada pessoa. No geral, recomenda-se o uso de um computador ou notebook dedicado exclusivamente a essa finalidade ou, alternativamente, uma unidade de armazenamento externa, como um pendrive ou HD. Em qualquer caso, a segurança deve ser prioridade. Para isso, utilize senhas robustas, criptografia adicional e mantenha o dispositivo protegido contra quaisquer mãos que não sejam as suas.
+O ambiente ideal para a execução do sistema pode variar conforme as necessidades de cada pessoa. No geral, recomenda-se o uso de um computador ou notebook dedicado exclusivamente a essa finalidade ou, alternativamente, uma unidade de armazenamento dedicada, como um pendrive ou HD. Em qualquer caso, mantenha o dispositivo protegido contra quaisquer mãos que não sejam as suas.
+
+Caso utilize uma unidade de armazenamento dedicada e queira protegê-la com senha, você pode usar o [**🔗 VeraCrypt**](https://www.veracrypt.fr/code/VeraCrypt/), um software que cria volumes criptografados, disponível para Windows, Linux e Mac.
 
 ### 🛠️ Instalação e Execução
 
@@ -41,6 +43,16 @@ Após concluir as etapas anteriores, você poderá inicializar a aplicação com
 ```bash
 python -m app
 ```
+
+### 🔄 Migrações
+
+Se você estiver utilizando a aplicação e deseja atualizá-la sem perder seus dados, será necessário aplicar as migrações do banco de dados. Para isso, execute o seguinte comando:
+
+```bash
+flask db upgrade
+```
+
+Após a conclusão, basta iniciar a aplicação novamente.
 
 ### ⚖️ Licença
 
