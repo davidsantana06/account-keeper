@@ -1,5 +1,4 @@
 from flask_wtf import FlaskForm
-from random import choice
 from wtforms import SelectField, StringField, SubmitField
 from wtforms.validators import DataRequired, Length
 
@@ -11,22 +10,10 @@ class UserForm(FlaskForm):
         label="Nome",
         render_kw={"placeholder": "Nome"},
         validators=[DataRequired(), Length(min=1, max=60)],
-        default=choice(
-            [
-                "Águia Viajante",
-                "Cavalo Desbravador",
-                "Cão Caçador",
-                "Galo Pioneiro",
-                "Leão Nômade",
-                "Ovelha Viajante",
-                "Pato Explorador",
-            ]
-        ),
     )
     first_view = SelectField(
         label="Página inicial",
         choices=[("home:index", "Início"), ("account:index", "Contas")],
-        default="home:index",
     )
     password_complexity = SelectField(
         label="Complexidade das senhas",
@@ -35,7 +22,6 @@ class UserForm(FlaskForm):
             (PasswordFacade.MEDIUM_COMPLEXITY, "Modicus (Média)"),
             (PasswordFacade.HIGH_COMPLEXITY, "Perplexus (Alta)"),
         ],
-        default=PasswordFacade.LOW_COMPLEXITY,
     )
     zoom = SelectField(
         label="Escala de visualização",
@@ -47,6 +33,5 @@ class UserForm(FlaskForm):
             ("zoom-4", "Olho de Júpiter (140%)"),
             ("zoom-5", "Horizonte do Coliseu (150%)"),
         ],
-        default="zoom-0",
     )
     submit = SubmitField(label="Salvar", render_kw={"disabled": True})

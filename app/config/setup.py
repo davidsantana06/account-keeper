@@ -26,8 +26,7 @@ class Setup:
     def create_tables(app: Flask) -> None:
         with app.app_context():
             db.create_all()
-            user = UserService.get()
-            if not user: UserService.create()
+            UserService.create()
 
     @staticmethod
     def register_views(app: Flask) -> None:
