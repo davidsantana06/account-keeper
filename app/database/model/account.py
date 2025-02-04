@@ -9,6 +9,7 @@ Accounts = list["Account"]
 class Account(db.Model, Model, TimestampMixin):
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(String, nullable=False)
+    category = Column(String, nullable=False, server_default="Comum")
     notes = Column(String)
     username = Column(String)
     email = Column(String)
@@ -17,7 +18,14 @@ class Account(db.Model, Model, TimestampMixin):
 
     @classmethod
     def find_all(cls) -> Accounts:
-        return cls._query_all(ordinances={cls.name, cls.username, cls.email, cls.phone})
+        return cls._query_all(
+            ordinances={
+                cls.name,
+                cls.username,
+                cls.email,
+                cls.phone,
+            }
+        )
 
     @classmethod
     def find_first_by_id(cls, id: int) -> "Account":
@@ -28,3 +36,7 @@ class Account(db.Model, Model, TimestampMixin):
         char = self.name[0].lower()
         is_letter = "a" <= char <= "z"
         return char if is_letter else "#"
+
+    @property
+    def category_class(self) -> str:
+        return {"Comum": "dark", "Especial": "primary"}[self.category]

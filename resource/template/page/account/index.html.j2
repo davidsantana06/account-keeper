@@ -1,3 +1,5 @@
+{% from macro('right_tag') import right_tag %}
+
 {% extends layout('base') %}
 
 {% block content %}
@@ -18,16 +20,25 @@
                                     />
                                 </figure>
                                 <div>
-                                    <h2 class="title is-6 mb-1">
+                                    <h2 class="title is-6 mb-2">
                                         {{ account.name | truncate(27, killwords=True) }}
                                     </h2>
-                                    <span class="subtitle is-7">
+                                    <h3 class="subtitle is-7 mb-3">
                                         {{
                                             account.username or
                                             account.email | truncate(47, killwords=True) or
                                             account.phone or
                                             'Sem credenciais'
                                         }}
+                                    </h3>
+                                    <span class="
+                                        tag
+                                        is-{{ account.category_class }}
+                                        has-text-weight-semibold
+                                        px-2
+                                        py-1
+                                    ">
+                                        {{ account.category }}
                                     </span>
                                 </div>
                             </div>
