@@ -5,8 +5,8 @@ class Path:
     ROOT_DIR = path.abspath(path.dirname(f"{__file__}/../../../.."))
     """ / """
 
-    DATABASE_FILE = path.join(ROOT_DIR, "database.sqlite3")
-    """ /database.sqlite3 """
+    DATABASE_FILE = path.join(ROOT_DIR, "db.sqlite3")
+    """ /db.sqlite3 """
 
     RESOURCE_DIR = path.join(ROOT_DIR, "resource")
     """ /resource """

@@ -1,12 +1,12 @@
 from sqlalchemy import Column, Integer, String
-from app.extension import database
+from app.extension import db
 from ..inheritable import Model, TimestampMixin
 
 
 Accounts = list["Account"]
 
 
-class Account(database.Model, Model, TimestampMixin):
+class Account(db.Model, Model, TimestampMixin):
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(String, nullable=False)
     notes = Column(String)

@@ -1,9 +1,9 @@
 from sqlalchemy import Column, Integer, String
-from app.extension import database
+from app.extension import db
 from ..inheritable import Model, TimestampMixin
 
 
-class User(database.Model, Model, TimestampMixin):
+class User(db.Model, Model, TimestampMixin):
     id = Column(Integer, autoincrement=True, primary_key=True)
 
     # identification  _

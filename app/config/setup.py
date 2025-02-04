@@ -1,8 +1,7 @@
 from flask import Flask
-import webview
 
 from app.database import *
-from app.extension import database
+from app.extension import db, migrate
 from app.facade import FlashFacade, TemplateFacade, URLFacade
 from app.service import UserService
 from app.view import AccountView, HomeView, UserView
@@ -19,17 +18,16 @@ class Setup:
         app.template_folder = Path.TEMPLATE_DIR
 
     @staticmethod
-    def initialize_database(app: Flask) -> None:
-        database.init_app(app)
-        with app.app_context():
-            database.create_all()
+    def initialize_extensions(app: Flask) -> None:
+        db.init_app(app)
+        migrate.init_app(app, db)
 
     @staticmethod
-    def create_user(app: Flask) -> None:
+    def create_tables(app: Flask) -> None:
         with app.app_context():
+            db.create_all()
             user = UserService.get()
-            if not user:
-                UserService.create()
+            if not user: UserService.create()
 
     @staticmethod
     def register_views(app: Flask) -> None:
@@ -52,8 +50,3 @@ class Setup:
                 "user": UserService.get(),
             }
         )
-
-    @staticmethod
-    def open_window(app: Flask) -> None:
-        webview.create_window("Account Keeper", app, min_size=(500, 500))
-        webview.start(icon=Path.ICON_FILE)
