@@ -39,4 +39,4 @@ class Account(db.Model, Model, TimestampMixin):
 
     @property
     def category_class(self) -> str:
-        return {"Comum": "dark", "Especial": "primary"}[self.category]
+        return {"Comum": "dark", "Especial": "white"}[self.category]
