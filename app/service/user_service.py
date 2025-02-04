@@ -1,51 +1,14 @@
-from random import choice
-
 from app.database import User
-from app.facade import PasswordFacade
 from app.form import UserForm
 
 
 class UserService:
-    _FIRST_VIEW_CHOICES = [("home:index", "Início"), ("account:index", "Contas")]
-
-    _PASSWORD_COMPLEXITY_CHOICES = [
-        (PasswordFacade.LOW_COMPLEXITY, "Levis (Baixa)"),
-        (PasswordFacade.MEDIUM_COMPLEXITY, "Modicus (Média)"),
-        (PasswordFacade.HIGH_COMPLEXITY, "Perplexus (Alta)"),
-    ]
-
-    _ZOOM_CHOICES = [
-        ("zoom-0", "Pé no Solo (100%)"),
-        ("zoom-1", "Vista do Fórum (110%)"),
-        ("zoom-2", "Olhar do Legado (120%)"),
-        ("zoom-3", "Visão do Centurião (130%)"),
-        ("zoom-4", "Olho de Júpiter (140%)"),
-        ("zoom-5", "Horizonte do Coliseu (150%)"),
-    ]
-
-    @staticmethod
-    def _choice_name() -> str:
-        return choice(
-            [
-                "Águia Viajante",
-                "Cavalo Desbravador",
-                "Cão Caçador",
-                "Galo Pioneiro",
-                "Leão Nômade",
-                "Ovelha Viajante",
-                "Pato Explorador",
-            ]
-        )
-
     @classmethod
-    def create(cls) -> User:
+    def create(cls) -> None:
         user = User()
-        user.name = cls._choice_name()
-        user.first_view = cls._FIRST_VIEW_CHOICES[0][0]
-        user.password_complexity = cls._PASSWORD_COMPLEXITY_CHOICES[0][0]
-        user.zoom = cls._ZOOM_CHOICES[0][0]
+        form = UserForm()
+        form.populate_obj(user)
         User.save(user)
-        return user
 
     @staticmethod
     def get() -> User:
@@ -54,9 +17,6 @@ class UserService:
     @classmethod
     def fill(cls, form: UserForm) -> None:
         user = cls.get()
-        form.first_view.choices = cls._FIRST_VIEW_CHOICES
-        form.password_complexity.choices = cls._PASSWORD_COMPLEXITY_CHOICES
-        form.zoom.choices = cls._ZOOM_CHOICES
         form.process(obj=user)
 
     @classmethod

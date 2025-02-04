@@ -1,6 +1,9 @@
 from flask_wtf import FlaskForm
+from random import choice
 from wtforms import SelectField, StringField, SubmitField
 from wtforms.validators import DataRequired, Length
+
+from app.facade import PasswordFacade
 
 
 class UserForm(FlaskForm):
@@ -8,8 +11,42 @@ class UserForm(FlaskForm):
         label="Nome",
         render_kw={"placeholder": "Nome"},
         validators=[DataRequired(), Length(min=1, max=60)],
+        default=choice(
+            [
+                "Águia Viajante",
+                "Cavalo Desbravador",
+                "Cão Caçador",
+                "Galo Pioneiro",
+                "Leão Nômade",
+                "Ovelha Viajante",
+                "Pato Explorador",
+            ]
+        ),
     )
-    first_view = SelectField(label="Página inicial")
-    password_complexity = SelectField(label="Complexidade das senhas")
-    zoom = SelectField(label="Escala de visualização")
+    first_view = SelectField(
+        label="Página inicial",
+        choices=[("home:index", "Início"), ("account:index", "Contas")],
+        default="home:index",
+    )
+    password_complexity = SelectField(
+        label="Complexidade das senhas",
+        choices=[
+            (PasswordFacade.LOW_COMPLEXITY, "Levis (Baixa)"),
+            (PasswordFacade.MEDIUM_COMPLEXITY, "Modicus (Média)"),
+            (PasswordFacade.HIGH_COMPLEXITY, "Perplexus (Alta)"),
+        ],
+        default=PasswordFacade.LOW_COMPLEXITY,
+    )
+    zoom = SelectField(
+        label="Escala de visualização",
+        choices=[
+            ("zoom-0", "Pé no Solo (100%)"),
+            ("zoom-1", "Vista do Fórum (110%)"),
+            ("zoom-2", "Olhar do Legado (120%)"),
+            ("zoom-3", "Visão do Centurião (130%)"),
+            ("zoom-4", "Olho de Júpiter (140%)"),
+            ("zoom-5", "Horizonte do Coliseu (150%)"),
+        ],
+        default="zoom-0",
+    )
     submit = SubmitField(label="Salvar", render_kw={"disabled": True})
