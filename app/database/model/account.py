@@ -19,12 +19,13 @@ class Account(db.Model, Model, TimestampMixin):
     @classmethod
     def find_all(cls) -> Accounts:
         return cls._query_all(
-            ordinances={
+            order_by=[
                 cls.name,
                 cls.username,
                 cls.email,
                 cls.phone,
-            }
+                cls.category.desc(),
+            ]
         )
 
     @classmethod

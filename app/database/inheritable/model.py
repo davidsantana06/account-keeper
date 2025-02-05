@@ -14,12 +14,11 @@ class Model(SQLAlchemyModel):
         db.session.commit()
 
     @classmethod
-    def _query_all(cls, ordinances: set | None = None) -> list["Model"]:
+    def _query_all(cls, order_by: list | None = None) -> list["Model"]:
         query = cls.query
-        if ordinances:
-            query = query.order_by(*ordinances)
+        if order_by: query = query.order_by(*order_by)
         return query.all()
 
     @classmethod
-    def _query_first(cls, filters: set) -> "Model":
+    def _query_first(cls, filters: list) -> "Model":
         return cls.query.filter(*filters).first()
