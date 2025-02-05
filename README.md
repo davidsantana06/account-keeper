@@ -1,9 +1,10 @@
 <img src="./resource/static/img/b-logo.png" alt="Account Keeper" style="width: 100%">
 
-<b>Account Keeper</b> é um aplicativo desktop totalmente offline, desenvolvido para oferecer segurança e praticidade no gerenciamento de contas e senhas. Inspirado na Antiga Roma, sua interface traz ilustrações e referências históricas, proporcionando uma experiência imersiva.
+**Account Keeper** é um aplicativo desktop totalmente offline, desenvolvido para oferecer segurança e praticidade no gerenciamento de contas e senhas. Inspirado na Antiga Roma, sua interface traz ilustrações e referências históricas, proporcionando uma experiência imersiva.
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+![Jinja](https://img.shields.io/badge/jinja-white.svg?style=for-the-badge&logo=jinja&logoColor=black)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
@@ -46,13 +47,13 @@ python -m app
 
 ### 🔄 Migrações
 
-Se você estiver utilizando a aplicação e deseja atualizá-la sem perder seus dados, será necessário aplicar as migrações do banco de dados. Para isso, execute o seguinte comando:
+Se você estiver utilizando a aplicação e deseja atualizá-la sem perder seus dados, pode ser necessário aplicar as migrações do banco de dados. Para isso, execute o seguinte comando:
 
 ```bash
 flask db upgrade
 ```
 
-Após a conclusão, basta iniciar a aplicação novamente.
+Em seguida, basta iniciar a aplicação.
 
 ### ⚖️ Licença
 
