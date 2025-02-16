@@ -23,23 +23,19 @@
                                     <h2 class="title is-6 mb-2">
                                         {{ account.name | truncate(27, killwords=True) }}
                                     </h2>
-                                    <h3 class="subtitle is-7 mb-2">
-                                        {{
-                                            account.username or
-                                            account.email | truncate(47, killwords=True) or
-                                            account.phone or
-                                            'Sem credenciais'
-                                        }}
-                                    </h3>
-                                    <span class="
-                                        tag
-                                        is-{{ account.category_class }}
-                                        has-text-weight-semibold
-                                        px-2
-                                        py-1
-                                    ">
-                                        {{ account.category }}
-                                    </span>
+                                    <div class="is-flex is-align-content-center">
+                                        <figure class="image is-16x16 mr-1">
+                                            <img src="{{ static('img:i-category-' ~ account.category ~ '.png') }}" />
+                                        </figure>
+                                        <h3 class="subtitle is-7 mb-0">
+                                            {{
+                                                account.username or
+                                                account.email | truncate(47, killwords=True) or
+                                                account.phone or
+                                                'Sem credenciais'
+                                            }}
+                                        </h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>

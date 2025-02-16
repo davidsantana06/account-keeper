@@ -3,36 +3,34 @@
     lang="pt-BR"
     data-theme="dark"
 >
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <link 
+            rel="stylesheet"
+            href="{{ static('vendor:bulma.min.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ static('vendor:animate.min.css') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ static('css:style.css') }}"
+        />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    />
-    <link 
-        rel="stylesheet"
-        href="{{ static('vendor:bulma.min.css') }}"
-    />
-    <link
-        rel="stylesheet"
-        href="{{ static('vendor:animate.min.css') }}"
-    />
-    <link
-        rel="stylesheet"
-        href="{{ static('css:style.css') }}"
-    />
-</head>
-
-<body class="is-unselectable is-{{ user.zoom }} has-navbar-fixed-top">
-    {% include fragment('navbar') %}
-    {% include fragment('notification') %}
-    {% block content required %}{% endblock %}
-    <script src="{{ static('vendor:imask.min.js') }}"></script>
-    <script
-        type="module"
-        src="{{ static('js:script.js') }}"
-    ></script>
-</body>
-
+    <body class="is-unselectable is-{{ user.zoom }} has-navbar-fixed-top">
+        {% include fragment('navbar') %}
+        {% include fragment('notification') %}
+        {% block content required %}{% endblock %}
+        <script src="{{ static('vendor:imask.min.js') }}"></script>
+        <script
+            type="module"
+            src="{{ static('js:script.js') }}"
+        ></script>
+    </body>
 </html>
