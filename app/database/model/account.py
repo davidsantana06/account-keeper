@@ -9,7 +9,7 @@ Accounts = list["Account"]
 class Account(db.Model, Model, TimestampMixin):
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(String, nullable=False)
-    category = Column(String, nullable=False, server_default="Comum")
+    category = Column(String, nullable=False, server_default="bronze")
     notes = Column(String)
     username = Column(String)
     email = Column(String)
@@ -37,7 +37,3 @@ class Account(db.Model, Model, TimestampMixin):
         char = self.name[0].lower()
         is_letter = "a" <= char <= "z"
         return char if is_letter else "#"
-
-    @property
-    def category_class(self) -> str:
-        return {"Comum": "dark", "Especial": "white"}[self.category]
