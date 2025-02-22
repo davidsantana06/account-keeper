@@ -6,8 +6,6 @@ class UserService:
     @classmethod
     def create(cls) -> None:
         user = User()
-        form = UserForm()
-        form.populate_obj(user)
         User.save(user)
 
     @staticmethod
