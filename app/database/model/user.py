@@ -36,4 +36,4 @@ class User(db.Model, Model, TimestampMixin):
 
     @classmethod
     def find_first(cls) -> "User":
-        return cls._query_first(filters={cls.id == 1})
+        return cls._query_first(filters=[cls.id == 1])

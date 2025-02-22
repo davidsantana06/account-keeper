@@ -17,11 +17,18 @@ class Account(db.Model, Model, TimestampMixin):
 
     @classmethod
     def find_all(cls) -> Accounts:
-        return cls._query_all(ordinances={cls.name, cls.username, cls.email, cls.phone})
+        return cls._query_all(
+            order_by=[
+                cls.name,
+                cls.username,
+                cls.email,
+                cls.phone,
+            ]
+        )
 
     @classmethod
     def find_first_by_id(cls, id: int) -> "Account":
-        return cls._query_first(filters={cls.id == id})
+        return cls._query_first(filters=[cls.id == id])
 
     @property
     def group(self) -> str:
