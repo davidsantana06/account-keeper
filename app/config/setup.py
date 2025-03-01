@@ -2,6 +2,7 @@ from flask import Flask
 
 from app.extension import db
 from app.facade import FlashFacade, URLFacade, ViewFacade
+from app.service import UserService
 
 from .parameter import Parameter
 from .path import Path
@@ -21,7 +22,9 @@ class Setup:
             db.create_all()
 
     @staticmethod
-    def create_user(app: Flask) -> None: ...
+    def create_user(app: Flask) -> None:
+        with app.app_context():
+            UserService.create()
 
     @staticmethod
     def register_views(app: Flask) -> None: ...
@@ -36,5 +39,6 @@ class Setup:
                 "static": URLFacade.for_static,
                 "view": URLFacade.for_view,
                 "flashes": FlashFacade.pop_all(),
+                "user": UserService.get(),
             }
         )
