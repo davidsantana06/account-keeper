@@ -47,6 +47,6 @@ class AccountView(FlaskView):
         )
 
     def delete(self, id: int):
-        return ResponseFacade.as_async_redirect(
-            URLFacade.for_view("account:update", id=id)
-        )
+        AccountService.delete(id)
+        FlashFacade.append("A conta foi excluída do catálogo", "info")
+        return ResponseFacade.as_async_redirect(URLFacade.for_view("account:index"))

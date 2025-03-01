@@ -4,9 +4,9 @@ from flask import url_for
 class URLFacade:
     @staticmethod
     def for_static(endpoint: str) -> str:
-        folder, file_name = endpoint.split(":")
+        folder, filename = endpoint.split(":")
         folder = f"{folder}/" if folder != "root" else ""
-        return url_for("static", filename=f"{folder}{file_name}")
+        return url_for("static", filename=f"{folder}{filename}")
 
     @staticmethod
     def for_view(endpoint: str, **values: object) -> str:
