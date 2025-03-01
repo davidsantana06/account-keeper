@@ -1,0 +1,33 @@
+<div class="fixed-grid has-1-cols">
+    <div class="
+        grid
+        is-position-fixed
+        is-top-0
+        is-right-0
+        is-z-index-1
+        m-5
+    ">
+        {% for message, category in flashes %}
+            <div class="cell">
+                <div class="
+                    notification
+                    is-{{ category }}
+                    is-light
+                    is-flex
+                    is-align-items-center
+                    is-shadow
+                    px-4
+                    py-3
+                    animate__animated
+                    animate__faster
+                    animate__fadeInRight
+                ">
+                    <figure class="image is-16x16 mr-2">
+                        <img src="{{ static('img:i-' ~ category ~ '.png') }}" />
+                    </figure>
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

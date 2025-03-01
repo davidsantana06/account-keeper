@@ -1,0 +1,17 @@
+{% macro form_field(
+    field,
+    encapsulation = 'control',
+    widget = 'input',
+    help = none,
+    margin_bottom = 5
+) %}
+    <div class="field mb-{{ margin_bottom }}">
+        {{ field.label(class='label is-size-7 has-text-weight-bold') }}
+        <div class="{{ encapsulation }}">
+            {{ field(class=widget) }}
+        </div>
+        {% if help %}
+            <p class="help">{{ help }}</p>
+        {% endif %}
+    </div>
+{% endmacro %}

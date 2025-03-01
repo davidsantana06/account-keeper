@@ -1,0 +1,42 @@
+{% from macro('form_action') import form_action %}
+{% from macro('form_field') import form_field %}
+
+{% macro account_form(form, action, method) %}
+    <form
+        data-action="{{ action }}"
+        data-method="{{ method }}"
+    >
+        <div class="box p-5">
+            {{ form_field(form.name) }}
+            {{ form_field(
+                form.notes,
+                widget='textarea',
+                help=(
+                    'Adicione uma nota, um lembrete ou qualquer outra ' ~ 
+                    'informação que desejar.'
+                )
+            ) }}
+            {{ form_field(form.username) }}
+            <div class="columns">
+                <div class="column is-full is-7">
+                    {{ form_field(form.email, margin_bottom=0) }}
+                </div>
+                <div class="column is-full is-5">
+                    {{ form_field(form.phone, margin_bottom=0) }}
+                </div>
+            </div>
+            {{ form_field(
+                form.password,
+                help=(
+                    'Use uma <b>senha forte</b> com, no mínimo, 12 caracteres, ' ~
+                    'incluindo letras maiúsculas, minúsculas, números e símbolos.'
+                ),
+                margin_bottom=0
+            ) }}
+        </div>
+        {{ form_action(
+            form.submit,
+            back_href=view('account:index'),
+        ) }}
+    </form>
+{% endmacro %}

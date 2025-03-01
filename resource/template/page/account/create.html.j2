@@ -1,0 +1,15 @@
+{% from macro('account_form') import account_form with context %}
+{% from macro('banner_header') import banner_header %}
+
+{% extends layout('base') %}
+
+{% block content %}
+    {{ banner_header(image=static('img:b-account.png')) }}
+    <main class="container is-max-tablet px-5 mb-5">
+        {{ account_form(
+            form,
+            action=view('account:post'),
+            method='post'
+        ) }}
+    </main>
+{% endblock %}
