@@ -1,0 +1,42 @@
+{% from macro('banner_header') import banner_header %}
+
+{% extends layout('base') %}
+
+{% block content %}
+    {{ banner_header(image=static('img:b-logo.png')) }}
+    <div class="container is-max-tablet px-5 mb-5">
+        <div class="content has-text-justified">
+            <p><strong>Meu caro companheiro,</strong></p>
+            <p>
+                Escrevo-te de Roma, com a esperança de encontrar-te em
+                paz, embora saiba quão árduos são os tempos que
+                enfrentamos. A perseguição recai sobre nós, sobre o que
+                somos e sobre o que nos pertence, como a tempestade que
+                não distingue entre os fortes e os fracos.
+            </p>
+            <p>
+                Por isso, envio-te este presente. Não foi feito sem
+                esforço, nem sem propósito. Que ele te sirva para
+                guardar o que é essencial, longe dos olhos daqueles que
+                nos vigiam. Não é um escudo impenetrável, mas um passo
+                adiante, uma ferramenta que nos dá mais liberdade para
+                lidar com o fardo de nossos sigilos.
+            </p>
+            <p>
+                O tempo não me permitiu instruir-te em cada detalhe sobre
+                seu manuseio, mas não te aflijas. Foi concebido com grande
+                cautela, de modo que seu uso seja claro e direto. Confia
+                na intenção com que foi feito, e verás que o domínio virá
+                com naturalidade.
+            </p>
+            <p>
+                Ainda assim, recorda-te: nenhuma proteção é absoluta se a
+                vigilância falha. Sê prudente onde guardas teus registros,
+                pois aqueles que nos perseguem não cessam em sua busca. O
+                descuido é a porta aberta ao infortúnio.
+            </p>
+            <p><strong>Sê forte. Sê cauteloso.</strong></p>
+            <p><em>Com estima,<br>David Santana.</em></p>
+        </div>
+    </div>
+{% endblock %}

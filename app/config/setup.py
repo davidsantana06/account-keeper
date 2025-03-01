@@ -3,6 +3,7 @@ from flask import Flask
 from app.extension import db
 from app.facade import FlashFacade, URLFacade, ViewFacade
 from app.service import UserService
+from app.view import HomeView
 
 from .parameter import Parameter
 from .path import Path
@@ -27,7 +28,8 @@ class Setup:
             UserService.create()
 
     @staticmethod
-    def register_views(app: Flask) -> None: ...
+    def register_views(app: Flask) -> None:
+        HomeView.register(app)
 
     @staticmethod
     def inject_jinja_globals(app: Flask) -> None:

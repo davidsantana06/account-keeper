@@ -1,0 +1,27 @@
+{% from macro('navbar_item') import navbar_item %}
+
+<nav class="navbar is-fixed-top">
+    <div class="navbar-brand">
+        <div class="navbar-item">
+            <figure class="image">
+                <img src="{{ static('img:i-logo-light.png') }}" />
+            </figure>
+        </div>
+        <a
+            class="navbar-burger"
+            data-target=".navbar-menu"
+        >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-end">
+            {{ navbar_item('Início', view('home:index')) }}
+            {{ navbar_item('Contas', view('home:index')) }}
+            {{ navbar_item('Perfil', view('home:index')) }}
+        </div>
+    </div>
+</nav>
