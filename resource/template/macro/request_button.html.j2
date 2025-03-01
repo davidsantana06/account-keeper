@@ -1,0 +1,20 @@
+{% macro request_button(
+    text,
+    image,
+    action,
+    method,
+    category = 'default'
+) %}
+    <button
+        class="button is-{{ category }}"
+        data-action="{{ action }}"
+        data-method="{{ method }}"
+    >
+        <div class="is-flex is-align-items-center">
+            <figure class="image is-16x16 mr-2">
+                <img src="{{ image }}" />
+            </figure>
+            {{ text }}
+        </div>
+    </button>
+{% endmacro %}

@@ -1,3 +1,4 @@
+import { turnOnButtonAsyncRequest } from "./_button.js";
 import { turnOnCardRedirect } from "./_card.js";
 import {
   activateIMask,
@@ -15,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // navbar _
   activateCurrentNavbarItem();
   turnOnNavbarMenuToggle();
+
+  // button _
+  turnOnButtonAsyncRequest();
 
   // card _
   turnOnCardRedirect();

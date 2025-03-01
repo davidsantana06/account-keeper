@@ -1,0 +1,38 @@
+{% from macro('account_form') import account_form with context %}
+{% from macro('banner_header') import banner_header %}
+{% from macro('request_button') import request_button %}
+
+{% extends layout('base') %}
+
+{% block content %}
+    <header class="container is-max-tablet px-5 my-5">
+        <figure class="image mb-2">
+            <img 
+                class="has-radius-large" 
+                src="{{ static('img:b-account.png') }}"
+            />
+        </figure>
+        <div class="buttons are-small is-right">
+            {{ request_button(
+                text='Gerar senha',
+                image=static('img:i-generate-password.png'),
+                action=view('account:generate_password', id=account.id),
+                method='patch'
+            ) }}
+            {{ request_button(
+                text='Excluir',
+                image=static('img:i-delete.png'),
+                action=view('account:delete', id=account.id),
+                method='delete',
+                category='link'
+            ) }}
+        </div>
+    </header>
+    <main class="container is-max-tablet px-5 mb-5">
+        {{ account_form(
+            form,
+            action=view('account:put', id=account.id),
+            method='put'
+        ) }}
+    </main>
+{% endblock %}
