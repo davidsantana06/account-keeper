@@ -1,0 +1,75 @@
+{% extends layout('base') %}
+
+{% block content %}
+    <main class="container px-5 mt-5 mb-4">
+        {% for row in accounts | batch(2) %}
+            <div class="columns">
+                {% for account in row %}
+                    <div class="column is-full is-6">
+                        <div
+                            class="card is-clickable"
+                            data-href="{{ view('account:update', id=account.id) }}"
+                        >
+                            <div class="card-content is-flex is-align-items-center">
+                                <figure class="image is-64x64 is-flex-shrink-0 mr-5">
+                                    <img
+                                        class="is-rounded"
+                                        src="{{ static('img:i-group-' ~ account.group ~ '.png') }}"
+                                    />
+                                </figure>
+                                <div>
+                                    <h2 class="title is-6 mb-1">
+                                        {{ account.name | truncate(27, killwords=True) }}
+                                    </h2>
+                                    <span class="subtitle is-7">
+                                        {{
+                                            (
+                                                account.username or
+                                                account.email or
+                                                account.phone or
+                                                'Sem credenciais'
+                                            ) | truncate(47, killwords=True)
+                                        }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="is-flex is-flex-direction-column is-align-items-center pb-3">
+                <figure class="image is-96x96 mb-2">
+                    <img
+                        class="is-floating"
+                        src="{{ static('img:i-jupiter.png') }}"
+                    />
+                </figure>
+                <h2 class="title is-6 is-italic has-text-weight-medium">
+                    Sine monumentis
+                </h2>
+            </div>
+        {% endfor %}
+        <a
+            class="
+                button
+                is-primary
+                is-shadow
+                is-position-fixed
+                is-right-0
+                is-bottom-0
+                has-text-weight-semibold
+                px-5
+                m-5
+            "
+            href="{{ view('account:create') }}"
+        >
+            <div class="is-flex is-align-items-center">
+                <figure class="image is-16x16 mr-4">
+                    <img src="{{ static('img:i-add.png') }}" />
+                </figure>
+                Adicionar
+            </div>
+        </a>
+    </main>
+{% endblock %}

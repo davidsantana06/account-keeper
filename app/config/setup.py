@@ -3,7 +3,7 @@ from flask import Flask
 from app.extension import db
 from app.facade import FlashFacade, URLFacade, ViewFacade
 from app.service import UserService
-from app.view import HomeView
+from app.view import AccountView, HomeView
 
 from .parameter import Parameter
 from .path import Path
@@ -29,6 +29,7 @@ class Setup:
 
     @staticmethod
     def register_views(app: Flask) -> None:
+        AccountView.register(app)
         HomeView.register(app)
 
     @staticmethod
