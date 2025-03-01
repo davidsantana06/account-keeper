@@ -1,0 +1,52 @@
+{% from macro('banner_header') import banner_header %}
+{% from macro('form_action') import form_action %}
+{% from macro('form_field') import form_field %}
+{% from macro('right_tag') import right_tag %}
+
+{% extends layout('base') %}
+
+{% block content %}
+    {{ banner_header(image=static('img:b-profile.png')) }}
+    <main class="container is-max-tablet px-5 mb-5">
+        <form
+            data-action="{{ view('user:put') }}"
+            data-method="put"
+        >
+            <div class="box p-5 mb-5">
+                {{ right_tag('Identificação') }}
+                {{ form_field(form.name, margin_bottom=0) }}
+            </div>
+            <div class="box p-5 mb-5">
+                {{ right_tag('Preferências') }}
+                {{ form_field(
+                    form.first_view,
+                    encapsulation='select',
+                    widget='select',
+                    help=(
+                        'A página inicial é a primeira que você verá ao ' ~
+                        'acessar o sistema.'
+                    )
+                )}}
+                {{ form_field(
+                    form.password_complexity,
+                    encapsulation='select',
+                    widget='select',
+                    help=(
+                        'A complexidade influencia os requisitos das senhas ' ~
+                        'geradas para as contas.'
+                    )
+                )}}
+                {{ form_field(
+                    form.zoom,
+                    encapsulation='select',
+                    widget='select',
+                    margin_bottom=0
+                )}}
+            </div>
+            {{ form_action(
+                form.submit,
+                back_href=view('user:index')
+            ) }}
+        </form>
+    </main>
+{% endblock %}
