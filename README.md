@@ -30,6 +30,16 @@ pip install -r requirements.txt
 python -m app
 ```
 
+### 🧪 Cobertura de Testes
+
+Foram desenvolvidos testes unitários para validar os serviços oferecidos pelos módulos de conta (_account_) e usuário (_user_). Para executá-los, utilize o seguinte comando:
+
+```bash
+pytest
+```
+
+Durante a execução, um arquivo de banco de dados será criado no diretório `test/`, nomeado conforme a data e hora de início, seguido da extensão `.sqlite3`.
+
 ### ⚖️ Licença
 
 Este repositório é licenciado sob a **Licença MIT**, permitindo o uso e a modificação do código conforme desejado. As imagens utilizadas neste projeto pertencem a diferentes fontes e estão sujeitas a outros tipos de licença.
