@@ -25,7 +25,7 @@ class Setup:
     @staticmethod
     def create_user(app: Flask) -> None:
         with app.app_context():
-            UserService.create()
+            UserService.create_if_absent()
 
     @staticmethod
     def register_views(app: Flask) -> None:
