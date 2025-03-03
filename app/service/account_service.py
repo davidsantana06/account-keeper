@@ -28,19 +28,22 @@ class AccountService:
         return account
 
     @classmethod
-    def update(cls, id: int, form: AccountForm) -> None:
+    def update(cls, id: int, form: AccountForm) -> Account:
         account = cls.get_one_by_id(id)
         form.populate_obj(account)
         Account.save(account)
+        return account
 
     @classmethod
-    def generate_password(cls, id: int) -> None:
+    def generate_password(cls, id: int) -> Account:
         user = UserService.get()
         account = cls.get_one_by_id(id)
         account.password = PasswordFacade.generate(user.password_complexity)
         Account.save(account)
+        return account
 
     @classmethod
     def delete(cls, id: int) -> Account:
         account = cls.get_one_by_id(id)
         Account.delete(account)
+        return account
