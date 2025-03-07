@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from app.extension import db
-from ..inheritable import Model, TimestampMixin
+from ..base import Model, TimestampMixin
 
 
 Accounts = list["Account"]
@@ -28,7 +28,7 @@ class Account(db.Model, Model, TimestampMixin):
 
     @classmethod
     def find_first_by_id(cls, id: int) -> "Account":
-        return cls._query_first(filters=[cls.id == id])
+        return cls._query_first(filter_by=[cls.id == id])
 
     @property
     def group(self) -> str:

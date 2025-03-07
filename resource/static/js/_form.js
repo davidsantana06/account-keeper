@@ -65,7 +65,7 @@ export const turnOnFormAsyncRequest = () => {
     const { action, method } = form.dataset;
     const body = new FormData(form);
 
-    await submitRequest(action, { method, body });
+    submitRequest(action, { method, body });
   });
 };
 

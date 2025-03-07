@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String
 from app.extension import db
 from app.facade import PasswordFacade
 
-from ..inheritable import Model, TimestampMixin
+from ..base import Model, TimestampMixin
 
 
 class User(db.Model, Model, TimestampMixin):
@@ -36,4 +36,4 @@ class User(db.Model, Model, TimestampMixin):
 
     @classmethod
     def find_first(cls) -> "User":
-        return cls._query_first(filters=[cls.id == 1])
+        return cls._query_first(filter_by=[cls.id == 1])

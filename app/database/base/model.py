@@ -20,5 +20,5 @@ class Model(SQLAlchemyModel):
         return query.all()
 
     @classmethod
-    def _query_first(cls, filters: list) -> "Model":
-        return cls.query.filter(*filters).first()
+    def _query_first(cls, filter_by: list) -> "Model":
+        return cls.query.filter(*filter_by).first()
