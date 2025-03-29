@@ -1,11 +1,8 @@
 {% from macro('form_action') import form_action %}
 {% from macro('form_field') import form_field %}
 
-{% macro account_form(form, action, method) %}
-    <form
-        data-action="{{ action }}"
-        data-method="{{ method }}"
-    >
+{% macro account_form(form, action) %}
+    <form action="{{ action }}" method="POST">
         <div class="box p-5">
             {{ form_field(form.name) }}
             {{ form_field(

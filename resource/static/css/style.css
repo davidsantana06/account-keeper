@@ -15,10 +15,6 @@
   right: 0;
 }
 
-.is-shadow {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
 .is-z-index-1 {
   z-index: 1;
 }
@@ -51,22 +47,12 @@
   animation: floating 3s ease-in-out infinite;
 }
 
+.has-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
 .notification {
   max-width: 320px;
-}
-
-.textarea {
-  resize: none;
-}
-
-@media screen and (max-width: 768px) {
-  .is-flex-direction-column-mobile {
-    flex-direction: column !important;
-  }
-
-  .is-align-items-strecht-mobile {
-    align-items: stretch !important;
-  }
 }
 
 @keyframes floating {

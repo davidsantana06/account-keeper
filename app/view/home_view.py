@@ -6,14 +6,12 @@ from app.service import UserService
 
 
 class HomeView(FlaskView):
-    route_base = "/"
-
     def before_request(self, _: str):
         is_first_acess = "first_acess" not in session
         if is_first_acess:
             session["first_acess"] = False
             user = UserService.get()
-            return ResponseFacade.as_sync_redirect(URLFacade.for_view(user.first_view))
+            return ResponseFacade.as_redirect(URLFacade.for_view(user.first_view))
 
     def index(self):
         return ResponseFacade.as_page("home:index")

@@ -1,4 +1,4 @@
-from flask import Response, jsonify, redirect
+from flask import Response, redirect
 from .view_facade import ViewFacade
 
 
@@ -9,9 +9,5 @@ class ResponseFacade:
         return ViewFacade.render(f"page/{folder}/{filename}", context)
 
     @staticmethod
-    def as_async_redirect(location: str) -> Response:
-        return jsonify({"redirect": location})
-
-    @staticmethod
-    def as_sync_redirect(location: str) -> Response:
+    def as_redirect(location: str) -> Response:
         return redirect(location)

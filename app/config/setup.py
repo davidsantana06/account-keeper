@@ -30,7 +30,7 @@ class Setup:
     @staticmethod
     def register_views(app: Flask) -> None:
         AccountView.register(app)
-        HomeView.register(app)
+        HomeView.register(app, route_base="/")
         UserView.register(app)
 
     @staticmethod

@@ -28,9 +28,6 @@
         {% include partial('notification') %}
         {% block content required %}{% endblock %}
         <script src="{{ static('vendor:imask.min.js') }}"></script>
-        <script
-            type="module"
-            src="{{ static('js:script.js') }}"
-        ></script>
+        <script src="{{ static('js:script.js') }}"></script>
     </body>
 </html>

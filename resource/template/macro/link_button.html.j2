@@ -1,14 +1,12 @@
-{% macro request_button(
+{% macro link_button(
     text,
     image,
-    action,
-    method,
+    href,
     category = 'default'
 ) %}
-    <button
+    <a
         class="button is-{{ category }}"
-        data-action="{{ action }}"
-        data-method="{{ method }}"
+        href="{{ href }}"
     >
         <div class="is-flex is-align-items-center">
             <figure class="image is-16x16 mr-2">
@@ -16,5 +14,5 @@
             </figure>
             {{ text }}
         </div>
-    </button>
+    </a>
 {% endmacro %}

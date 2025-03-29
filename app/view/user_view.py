@@ -1,5 +1,5 @@
 from flask import request
-from flask_classful import FlaskView
+from flask_classful import FlaskView, route
 
 from app.facade import FlashFacade, ResponseFacade, URLFacade
 from app.form import UserForm
@@ -15,8 +15,9 @@ class UserView(FlaskView):
         UserService.fill(form)
         return ResponseFacade.as_page("user:update", {"form": form})
 
+    @route("/put", methods=["POST"])
     def put(self):
         form = UserForm(request.form)
         UserService.update(form)
-        FlashFacade.append("O perfil foi atualizado", "info")
-        return ResponseFacade.as_async_redirect(URLFacade.for_view("user:index"))
+        FlashFacade.append("Perfil atualizado", "info")
+        return ResponseFacade.as_redirect(URLFacade.for_view("user:index"))

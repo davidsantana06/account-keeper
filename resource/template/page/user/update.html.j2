@@ -9,8 +9,8 @@
     {{ banner_header(image=static('img:b-profile.png')) }}
     <main class="container is-max-tablet px-5 mb-5">
         <form
-            data-action="{{ view('user:put') }}"
-            data-method="put"
+            action="{{ view('user:put') }}"
+            method="POST"
         >
             <div class="box p-5 mb-5">
                 {{ right_tag('Identificação') }}
