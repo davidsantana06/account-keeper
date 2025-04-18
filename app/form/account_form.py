@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import (
     EmailField,
+    SelectField,
     StringField,
     SubmitField,
     TelField,
@@ -15,6 +16,15 @@ class AccountForm(FlaskForm):
         label="Nome",
         render_kw={"placeholder": "Nome"},
         validators=[DataRequired(), Length(min=1, max=60)],
+    )
+    category = SelectField(
+        label="Categoria",
+        render_kw={"placeholder": "Categoria"},
+        choices=[
+            ("bronze", "I - Bronze"),
+            ("silver", "II - Prata"),
+            ("gold", "III - Ouro"),
+        ],
     )
     notes = TextAreaField(
         label="Notas",

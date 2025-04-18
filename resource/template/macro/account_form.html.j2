@@ -4,7 +4,19 @@
 {% macro account_form(form, action) %}
     <form action="{{ action }}" method="POST">
         <div class="box p-5">
-            {{ form_field(form.name) }}
+            <div class="columns">
+                <div class="column is-full is-8">
+                    {{ form_field(form.name, margin_bottom=0) }}
+                </div>
+                <div class="column is-full is-4">
+                    {{ form_field(
+                        form.category,
+                        encapsulation='select',
+                        widget='select',
+                        margin_bottom=0
+                    ) }}
+                </div>
+            </div>
             {{ form_field(
                 form.notes,
                 widget='textarea',

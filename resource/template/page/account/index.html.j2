@@ -18,10 +18,22 @@
                                     />
                                 </figure>
                                 <div>
-                                    <h2 class="title is-6 mb-1">
+                                    <div class="is-flex is-align-items-center mb-2">
+                                        <figure class="image is-16x16 mr-2">
+                                            <img src="{{ static('img:i-category-' ~ account.category ~ '.png') }}" />
+                                        </figure>
+                                        <span class="is-size-7 has-text-weight-semibold">
+                                            {{ {
+                                                'bronze': 'Bronze',
+                                                'silver': 'Prata',
+                                                'gold': 'Ouro',
+                                            }[account.category] }}
+                                        </span>
+                                    </div>
+                                    <h2 class="title is-6 mb-2">
                                         {{ account.name | truncate(27, killwords=True) }}
                                     </h2>
-                                    <span class="subtitle is-7">
+                                    <h3 class="subtitle is-7 mb-0">
                                         {{
                                             (
                                                 account.username or
@@ -30,7 +42,7 @@
                                                 'Sem credenciais'
                                             ) | truncate(47, killwords=True)
                                         }}
-                                    </span>
+                                    </h3>
                                 </div>
                             </div>
                         </div>
