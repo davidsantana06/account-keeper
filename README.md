@@ -15,6 +15,7 @@
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Bulma](https://img.shields.io/badge/bulma-00D0B1?style=for-the-badge&logo=bulma&logoColor=white)
 
+![Pytest](https://img.shields.io/badge/pytest-%23ffffff.svg?style=for-the-badge&logo=pytest&logoColor=2f9fe3)
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 
 ### 🖥️ Preparação do Ambiente
@@ -39,6 +40,16 @@ pytest
 ```
 
 Durante a execução, um arquivo de banco de dados será criado no diretório `test/`, nomeado conforme a data e hora de início, seguido da extensão `.sqlite3`.
+
+### 🤝 Doação
+
+Gostou do projeto e gostaria de apoiar financeiramente? Você pode contribuir via **PayPal** ou através do **PIX** — é só clicar em uma das opções abaixo:
+
+[![PayPal](https://img.shields.io/badge/PayPal-Donate-1040C1?labelColor=121661&style=for-the-badge&logo=paypal&link=https://www.paypal.com/donate/?hosted_button_id=2P9HPGUP7Z43S)](https://www.paypal.com/donate/?hosted_button_id=2P9HPGUP7Z43S)
+&nbsp;
+[![PIX](https://img.shields.io/badge/PIX-Doar-FBB88A?labelColor=F26722&style=for-the-badge&logo=pix&logoColor=ffffff&link=https://tipa.ai/davidsantana06)](https://tipa.ai/davidsantana06)
+
+Este e outros projetos disponíveis no meu perfil foram desenvolvidos de forma independente. Qualquer apoio para manter este propósito é mais do que bem-vindo! 💪
 
 ### ⚖️ Licença
 
