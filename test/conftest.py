@@ -8,8 +8,8 @@ from app.extension import db
 
 @fixture
 def app():
-    current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    database_file = path.join(path.dirname(__file__), f"{current_time}.sqlite3")
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    database_file = path.join(path.dirname(__file__), f"{current_date}.sqlite3")
 
     app_ = Flask(__name__)
     app_.config.from_mapping(

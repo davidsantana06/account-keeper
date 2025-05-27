@@ -20,6 +20,11 @@ _DATA = {
         "LinkedIn",
         "Instagram",
     ],
+    "category": [
+        "bronze",
+        "silver",
+        "gold",
+    ],
     "notes": [
         "",
         "Atualizar a senha a cada 15 dias",
