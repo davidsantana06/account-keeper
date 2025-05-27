@@ -8,11 +8,11 @@ from app.facade import PasswordFacade
 class UserForm(FlaskForm):
     name = StringField(
         label="Nome",
-        render_kw={"placeholder": "Nome"},
+        render_kw={"placeholder": "Nome*"},
         validators=[DataRequired(), Length(min=1, max=60)],
     )
     first_view = SelectField(
-        label="Página inicial",
+        label="Tela de abertura",
         choices=[("home:index", "Início"), ("account:index", "Contas")],
     )
     password_complexity = SelectField(
