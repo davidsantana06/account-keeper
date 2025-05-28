@@ -14,8 +14,8 @@ class AccountService:
         return account
 
     @staticmethod
-    def get_all() -> Accounts:
-        return Account.find_all()
+    def get_all(search: str = "") -> Accounts:
+        return Account.find_all(search)
 
     @staticmethod
     def get_one_by_id(id: int) -> Account:

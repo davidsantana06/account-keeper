@@ -8,7 +8,8 @@ from app.service import AccountService
 
 class AccountView(FlaskView):
     def index(self):
-        accounts = AccountService.get_all()
+        search = request.args.get("search", "")
+        accounts = AccountService.get_all(search)
         return ResponseFacade.as_page("account:index", {"accounts": accounts})
 
     def create(self):

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, or_
 from app.extension import db
 from ..base import Model, TimestampMixin
 
@@ -17,19 +17,29 @@ class Account(db.Model, Model, TimestampMixin):
     password = Column(String)
 
     @classmethod
-    def find_all(cls) -> Accounts:
-        return cls._query_all(
-            order_by=[
+    def find_all(cls, search: str) -> Accounts:
+        return (
+            cls.query.filter(
+                or_(
+                    cls.name.icontains(search),
+                    cls.notes.icontains(search),
+                    cls.username.icontains(search),
+                    cls.email.icontains(search),
+                    cls.phone.icontains(search),
+                )
+            )
+            .order_by(
                 cls.name,
                 cls.username,
                 cls.email,
                 cls.phone,
-            ]
+            )
+            .all()
         )
 
     @classmethod
     def find_first_by_id(cls, id: int) -> "Account":
-        return cls._query_first(filter_by=[cls.id == id])
+        return cls.query.filter(cls.id == id).first()
 
     @property
     def group(self) -> str:

@@ -12,13 +12,3 @@ class Model(SQLAlchemyModel):
     def delete(model: "Model") -> None:
         db.session.delete(model)
         db.session.commit()
-
-    @classmethod
-    def _query_all(cls, order_by: list | None = None) -> list["Model"]:
-        query = cls.query
-        if order_by: query = query.order_by(*order_by)
-        return query.all()
-
-    @classmethod
-    def _query_first(cls, filter_by: list) -> "Model":
-        return cls.query.filter(*filter_by).first()
