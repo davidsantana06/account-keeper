@@ -1,4 +1,4 @@
-.venv/
 __pycache__/
-
+.Trash-1000/
+.venv/
 *.sqlite3

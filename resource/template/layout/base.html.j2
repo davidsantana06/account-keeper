@@ -9,6 +9,11 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0"
         />
+        <title>Account Keeper</title>
+        <link
+            rel="icon"
+            href="{{ static('root:favicon.ico') }}"
+        >
         <link 
             rel="stylesheet"
             href="{{ static('vendor:bulma.min.css') }}"
@@ -21,6 +26,7 @@
             rel="stylesheet"
             href="{{ static('css:style.css') }}"
         />
+        
     </head>
 
     <body class="is-unselectable is-{{ user.zoom }} has-navbar-fixed-top">
