@@ -1,10 +1,10 @@
 <img
-  src="./resource/static/img/b-logo.png"
+  src="./static/img/b-logo.png"
   alt="Account Keeper"
   style="width: 100%"
 />
 
-**Account Keeper** é um aplicativo desktop totalmente offline, desenvolvido para oferecer segurança e praticidade no gerenciamento de contas e senhas. Inspirado na Antiga Roma, sua interface traz ilustrações e referências históricas, proporcionando uma experiência imersiva.
+Proteja seu império digital com o **Account Keeper**, sua fortaleza de senhas pessoal. Construído para ser totalmente offline, este aplicativo desktop assegura que seus dados mais sensíveis fiquem armazenados exclusivamente na sua máquina, longe de qualquer vulnerabilidade da web.
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
@@ -18,30 +18,55 @@
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 ![Pytest](https://img.shields.io/badge/pytest-%23ffffff.svg?style=for-the-badge&logo=pytest&logoColor=2f9fe3)
 
-### 🖥️ Preparação do Ambiente
+## 🖥️ Preparação do Ambiente
 
 O ambiente ideal para a execução do sistema pode variar conforme as necessidades de cada pessoa. No geral, recomenda-se o uso de um computador ou notebook dedicado exclusivamente a essa finalidade ou, alternativamente, uma unidade de armazenamento dedicada, como um pendrive ou HD. Em qualquer caso, mantenha o dispositivo protegido contra quaisquer mãos que não sejam as suas.
 
-### 🛠️ Instalação e Execução
+## 🛠️ Instalação e Execução
 
-A aplicação foi desenvolvida em **Python 3.12**, recomendando-se o uso dessa versão para garantir compatibilidade. Para instalar as dependências e executar, utilize os comandos abaixo no diretório raiz do projeto:
+Este projeto foi desenvolvido em **Python 3.12**. Certifique-se de ter essa versão instalada para garantir a compatibilidade.
+
+Todos os comandos a seguir devem ser executados a partir da raiz do projeto.
+
+### Sistemas Windows 🪟
+
+O script de inicialização `run.bat` automatiza todo o processo, desde a criação do ambiente virtual até a execução do programa. Execute o seguinte comando no seu terminal e uma nova janela para a aplicação será aberta automaticamente:
 
 ```bash
-pip install -r requirements.txt
-python -m app
+run.bat
 ```
 
-### 🧪 Cobertura de Testes
+### Sistemas Linux 🐧, macOS 🍎 e Unix 🐚
 
-Foram desenvolvidos testes unitários para validar os serviços oferecidos pelos módulos de conta (_account_) e usuário (_user_). Para executá-los, utilize o seguinte comando:
+Para estes sistemas, o script `run.sh` também se encarrega de todo o processo, criando o ambiente virtual e iniciando um servidor local.
+
+Primeiro, conceda a permissão de execução ao script (você só precisa fazer isso uma única vez):
+
+```bash
+chmod +x ./run.sh
+```
+
+Em seguida, execute o script:
+
+```bash
+./run.sh
+```
+
+Após a execução, o servidor será iniciado. Você poderá acessá-lo em seu navegador no endereço `http://127.0.0.1:5000`.
+
+Caso queira alterar a porta padrão (5000), crie um arquivo `.env` com base no `.env.example` e defina o valor da variável `PORT` com o número desejado (entre 1024 e 49151).
+
+## 🧪 Cobertura de Testes
+
+O projeto possui uma suíte de testes unitários para garantir a estabilidade e o correto funcionamento dos módulos de conta (`account`) e usuário (`user`). Para executá-lo, utilize o comando:
 
 ```bash
 pytest
 ```
 
-Durante a execução, um arquivo de banco de dados será criado no diretório `test/`, nomeado conforme a data atual, seguido da extensão `.sqlite3`. Para realizar a limpeza do ambiente de testes, basta remover esse arquivo.
+A execução dos testes cria um arquivo de banco de dados temporário no diretório `test/`, com o nome baseado na data atual. Para realizar a limpeza do ambiente, basta remover os arquivos `.sqlite3` gerados neste diretório.
 
-### 🤝 Doação
+## 🤝 Doação
 
 Gostou do projeto e gostaria de apoiar financeiramente? Você pode contribuir via **PayPal** ou através do **Pix** — é só clicar em uma das opções abaixo:
 
@@ -51,6 +76,6 @@ Gostou do projeto e gostaria de apoiar financeiramente? Você pode contribuir vi
 
 Este e outros projetos disponíveis no meu perfil foram desenvolvidos de forma independente. Qualquer apoio para manter este propósito é mais do que bem-vindo! 💪
 
-### ⚖️ Licença
+## ⚖️ Licença
 
 Este repositório é licenciado sob a **Licença MIT**, permitindo o uso e a modificação do código conforme desejado. As imagens utilizadas neste projeto pertencem a diferentes fontes e estão sujeitas a outros tipos de licença.

@@ -1,5 +1,8 @@
 import platform
 import webview
+
+from app.config import Parameter
+
 from . import app
 
 
@@ -9,7 +12,7 @@ def run_in_windows():
 
 
 def run_in_other_systems():
-    app.run()
+    app.run(port=Parameter.PORT)
 
 
 if __name__ == "__main__":

@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from flask import Flask
 
 from app.extension import db
@@ -12,6 +13,7 @@ from .path import Path
 class Setup:
     @staticmethod
     def apply_parameters(app: Flask) -> None:
+        load_dotenv(Path.ENV_FILE, override=True)
         app.config.from_object(Parameter)
         app.static_folder = Path.STATIC_FOLDER
         app.template_folder = Path.TEMPLATE_FOLDER
