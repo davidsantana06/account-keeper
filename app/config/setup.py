@@ -1,8 +1,10 @@
 from dotenv import load_dotenv
 from flask import Flask
+from http import HTTPStatus
+from werkzeug.exceptions import HTTPException
 
 from app.extension import db
-from app.facade import Flash, Url, View
+from app.facade import Flash, Response, Url, View
 from app.service import UserService
 from app.view import AccountView, HomeView, UserView
 
@@ -34,6 +36,16 @@ class Setup:
         AccountView.register(app)
         HomeView.register(app, route_base="/")
         UserView.register(app)
+
+    @staticmethod
+    def __handle_error(_: Exception):
+        Flash.append("Erro — O destino conspirou contra esta operação", "danger")
+        user = UserService.get()
+        return Response.as_redirect(Url.for_view(user.first_view))
+
+    @classmethod
+    def register_error_handlers(cls, app: Flask) -> None:
+        app.register_error_handler(Exception, cls.__handle_error)
 
     @staticmethod
     def inject_jinja_globals(app: Flask) -> None:

@@ -4,7 +4,7 @@ from typing import Literal
 
 class Flash:
     @staticmethod
-    def append(message: str, category: Literal["success", "info"]) -> None:
+    def append(message: str, category: Literal["danger", "info", "success"]) -> None:
         flash(message, category)
 
     @staticmethod

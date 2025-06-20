@@ -58,7 +58,7 @@ Caso queira alterar a porta padrão (5000), crie um arquivo `.env` com base no `
 
 ## 🧪 Cobertura de Testes
 
-O projeto possui uma suíte de testes unitários para garantir a estabilidade e o correto funcionamento dos módulos de conta (`account`) e usuário (`user`). Para executá-lo, utilize o comando:
+O projeto possui uma suíte de testes unitários para garantir a estabilidade e o correto funcionamento dos módulos de conta (_account_) e usuário (_user_). Para executá-lo, utilize o comando:
 
 ```bash
 pytest

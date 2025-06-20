@@ -13,7 +13,11 @@ class UserForm(FlaskForm):
     )
     first_view = SelectField(
         label="Tela de abertura",
-        choices=[("home:index", "Início"), ("account:index", "Contas")],
+        choices=[
+            ("home:index", "Início"),
+            ("account:index", "Contas"),
+            ("user:index", "Perfil"),
+        ],
     )
     password_complexity = SelectField(
         label="Complexidade das senhas",
