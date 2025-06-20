@@ -135,9 +135,7 @@ def test_generate_password(app: Flask, mocker: MockerFixture):
         "app.service.user_service.UserService.get",
         return_value=User(),
     )
-    mocker.patch(
-        "app.facade.password_facade.PasswordFacade.generate", return_value="password77"
-    )
+    mocker.patch("app.facade.password.Password.generate", return_value="password77")
     with app.app_context():
         AccountService.generate_password(8)
         account = AccountService.get_one_by_id(8)

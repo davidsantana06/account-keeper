@@ -3,16 +3,16 @@ from string import ascii_letters as letters, digits, punctuation
 from typing import Literal, get_args
 
 
-class PasswordFacade:
+class Password:
     Complexity = Literal["low", "medium", "high"]
 
-    _COMPLEXITIES = get_args(Complexity)
-    LOW_COMPLEXITY = _COMPLEXITIES[0]
-    MEDIUM_COMPLEXITY = _COMPLEXITIES[1]
-    HIGH_COMPLEXITY = _COMPLEXITIES[2]
+    __COMPLEXITIES = get_args(Complexity)
+    LOW_COMPLEXITY = __COMPLEXITIES[0]
+    MEDIUM_COMPLEXITY = __COMPLEXITIES[1]
+    HIGH_COMPLEXITY = __COMPLEXITIES[2]
 
     @classmethod
-    def _get_specs(cls, complexity: Complexity) -> tuple[str, int]:
+    def __get_specs(cls, complexity: Complexity) -> tuple[str, int]:
         return {
             cls.LOW_COMPLEXITY: (letters + digits, 12),
             cls.MEDIUM_COMPLEXITY: (letters + digits, 18),
@@ -21,5 +21,6 @@ class PasswordFacade:
 
     @classmethod
     def generate(cls, complexity: Complexity) -> str:
-        chars, length = cls._get_specs(complexity)
-        return "".join(choice(chars) for _ in range(length))
+        chars, length = cls.__get_specs(complexity)
+        choiced_chars = [choice(chars) for _ in range(length)]
+        return "".join(choiced_chars)

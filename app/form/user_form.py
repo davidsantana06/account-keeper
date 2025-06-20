@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import SelectField, StringField, SubmitField
 from wtforms.validators import DataRequired, Length
 
-from app.facade import PasswordFacade
+from app.facade import Password
 
 
 class UserForm(FlaskForm):
@@ -18,9 +18,9 @@ class UserForm(FlaskForm):
     password_complexity = SelectField(
         label="Complexidade das senhas",
         choices=[
-            (PasswordFacade.LOW_COMPLEXITY, "Levis (Baixa)"),
-            (PasswordFacade.MEDIUM_COMPLEXITY, "Modicus (Média)"),
-            (PasswordFacade.HIGH_COMPLEXITY, "Perplexus (Alta)"),
+            (Password.LOW_COMPLEXITY, "Levis (Baixa)"),
+            (Password.MEDIUM_COMPLEXITY, "Modicus (Média)"),
+            (Password.HIGH_COMPLEXITY, "Perplexus (Alta)"),
         ],
     )
     zoom = SelectField(

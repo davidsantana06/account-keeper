@@ -1,7 +1,7 @@
 from flask import url_for
 
 
-class URLFacade:
+class Url:
     @staticmethod
     def for_static(endpoint: str) -> str:
         folder, filename = endpoint.split(":")

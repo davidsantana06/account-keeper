@@ -2,7 +2,7 @@ from flask import flash, get_flashed_messages
 from typing import Literal
 
 
-class FlashFacade:
+class Flash:
     @staticmethod
     def append(message: str, category: Literal["success", "info"]) -> None:
         flash(message, category)

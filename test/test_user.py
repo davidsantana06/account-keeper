@@ -3,7 +3,7 @@ from pytest import fixture
 from random import choice
 from werkzeug.datastructures import MultiDict
 
-from app.facade import PasswordFacade
+from app.facade import Password
 from app.form import UserForm
 from app.service import UserService
 
@@ -12,9 +12,9 @@ _DATA = {
     "name": ["Aquila", "César Augusto", "Silas", "Tertuliano"],
     "first_view": ["home:index", "account:index"],
     "password_complexity": [
-        PasswordFacade.LOW_COMPLEXITY,
-        PasswordFacade.MEDIUM_COMPLEXITY,
-        PasswordFacade.HIGH_COMPLEXITY,
+        Password.LOW_COMPLEXITY,
+        Password.MEDIUM_COMPLEXITY,
+        Password.HIGH_COMPLEXITY,
     ],
     "zoom": [f"zoom-{i}" for i in range(6)],
 }
@@ -40,7 +40,7 @@ def test_create(app: Flask):
             "Pato Explorador",
         ]
         assert user.first_view == "home:index"
-        assert user.password_complexity == PasswordFacade.LOW_COMPLEXITY
+        assert user.password_complexity == Password.LOW_COMPLEXITY
         assert user.zoom == "zoom-0"
 
 
