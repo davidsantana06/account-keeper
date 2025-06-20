@@ -1,24 +1,24 @@
-{% from macro('banner_header') import banner_header %}
-{% from macro('form_action') import form_action %}
-{% from macro('form_field') import form_field %}
-{% from macro('right_tag') import right_tag %}
+{% from macro('banner_header') import render_banner_header %}
+{% from macro('form_action') import render_form_action %}
+{% from macro('form_field') import render_form_field %}
+{% from macro('right_tag') import render_right_tag %}
 
 {% extends layout('base') %}
 
 {% block content %}
-    {{ banner_header(image=static('img:b-profile.png')) }}
+    {{ render_banner_header(image=static('img:b-profile.png')) }}
     <main class="container is-max-tablet px-5 mb-5">
         <form
             action="{{ view('user:put') }}"
             method="POST"
         >
             <div class="box p-5 mb-5">
-                {{ right_tag('Identificação') }}
-                {{ form_field(form.name, margin_bottom=0) }}
+                {{ render_right_tag('Identificação') }}
+                {{ render_form_field(form.name, margin_bottom=0) }}
             </div>
             <div class="box p-5 mb-5">
-                {{ right_tag('Preferências') }}
-                {{ form_field(
+                {{ render_right_tag('Preferências') }}
+                {{ render_form_field(
                     form.first_view,
                     encapsulation='select',
                     widget='select',
@@ -27,7 +27,7 @@
                         'acessar o sistema.'
                     )
                 )}}
-                {{ form_field(
+                {{ render_form_field(
                     form.password_complexity,
                     encapsulation='select',
                     widget='select',
@@ -36,14 +36,14 @@
                         'geradas para as contas.'
                     )
                 )}}
-                {{ form_field(
+                {{ render_form_field(
                     form.zoom,
                     encapsulation='select',
                     widget='select',
                     margin_bottom=0
                 )}}
             </div>
-            {{ form_action(
+            {{ render_form_action(
                 form.submit,
                 back_href=view('user:index')
             ) }}

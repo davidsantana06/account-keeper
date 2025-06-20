@@ -1,9 +1,9 @@
-{% from macro('banner_header') import banner_header %}
+{% from macro('banner_header') import render_banner_header %}
 
 {% extends layout('base') %}
 
 {% block content %}
-    {{ banner_header(image=static('img:b-logo.png')) }}
+    {{ render_banner_header(image=static('img:b-logo.png')) }}
     <div class="container is-max-tablet px-5 mb-5">
         <div class="content has-text-justified">
             <p><strong>Meu caro companheiro,</strong></p>

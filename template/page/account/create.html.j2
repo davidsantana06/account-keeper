@@ -1,12 +1,12 @@
-{% from macro('account_form') import account_form with context %}
-{% from macro('banner_header') import banner_header %}
+{% from macro('account_form') import render_account_form with context %}
+{% from macro('banner_header') import render_banner_header %}
 
 {% extends layout('base') %}
 
 {% block content %}
-    {{ banner_header(image=static('img:b-account.png')) }}
+    {{ render_banner_header(image=static('img:b-account.png')) }}
     <main class="container is-max-tablet px-5 mb-5">
-        {{ account_form(
+        {{ render_account_form(
             form,
             action=view('account:post')
         ) }}

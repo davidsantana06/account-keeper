@@ -1,6 +1,6 @@
-{% from macro('account_form') import account_form with context %}
-{% from macro('banner_header') import banner_header %}
-{% from macro('link_button') import link_button %}
+{% from macro('account_form') import render_account_form with context %}
+{% from macro('banner_header') import render_banner_header %}
+{% from macro('link_button') import render_link_button %}
 
 {% extends layout('base') %}
 
@@ -13,12 +13,12 @@
             />
         </figure>
         <div class="buttons are-small is-right">
-            {{ link_button(
+            {{ render_link_button(
                 text='Gerar senha',
                 image=static('img:i-generate-password.png'),
                 href=view('account:generate_password', id=account.id)
             ) }}
-            {{ link_button(
+            {{ render_link_button(
                 text='Excluir',
                 image=static('img:i-delete.png'),
                 href=view('account:delete', id=account.id),
@@ -27,7 +27,7 @@
         </div>
     </header>
     <main class="container is-max-tablet px-5 mb-5">
-        {{ account_form(
+        {{ render_account_form(
             form,
             action=view('account:put', id=account.id)
         ) }}

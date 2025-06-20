@@ -1,15 +1,15 @@
-{% from macro('form_action') import form_action %}
-{% from macro('form_field') import form_field %}
+{% from macro('form_action') import render_form_action %}
+{% from macro('form_field') import render_form_field %}
 
-{% macro account_form(form, action) %}
+{% macro render_account_form(form, action) %}
     <form action="{{ action }}" method="POST">
         <div class="box p-5">
             <div class="columns">
                 <div class="column is-full is-8">
-                    {{ form_field(form.name, margin_bottom=0) }}
+                    {{ render_form_field(form.name, margin_bottom=0) }}
                 </div>
                 <div class="column is-full is-4">
-                    {{ form_field(
+                    {{ render_form_field(
                         form.category,
                         encapsulation='select',
                         widget='select',
@@ -17,7 +17,7 @@
                     ) }}
                 </div>
             </div>
-            {{ form_field(
+            {{ render_form_field(
                 form.notes,
                 widget='textarea',
                 help=(
@@ -25,16 +25,16 @@
                     'informação que desejar.'
                 )
             ) }}
-            {{ form_field(form.username) }}
+            {{ render_form_field(form.username) }}
             <div class="columns">
                 <div class="column is-full is-7">
-                    {{ form_field(form.email, margin_bottom=0) }}
+                    {{ render_form_field(form.email, margin_bottom=0) }}
                 </div>
                 <div class="column is-full is-5">
-                    {{ form_field(form.phone, margin_bottom=0) }}
+                    {{ render_form_field(form.phone, margin_bottom=0) }}
                 </div>
             </div>
-            {{ form_field(
+            {{ render_form_field(
                 form.password,
                 help=(
                     'Use uma <b>senha forte</b> com, no mínimo, 12 caracteres, ' ~
@@ -43,7 +43,7 @@
                 margin_bottom=0
             ) }}
         </div>
-        {{ form_action(
+        {{ render_form_action(
             form.submit,
             back_href=view('account:index'),
         ) }}
