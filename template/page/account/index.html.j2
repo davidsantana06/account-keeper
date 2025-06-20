@@ -78,12 +78,11 @@
                 is-primary
                 has-text-weight-medium
                 has-shadow
-                px-4
             "
             href="{{ view('account:create') }}"
         >
             <div class="is-flex is-align-items-center">
-                <figure class="image is-16x16 mr-4">
+                <figure class="image is-16x16 mr-2">
                     <img src="{{ static('img:i-add.png') }}" />
                 </figure>
                 Adicionar
@@ -93,15 +92,19 @@
             <div class="field has-addons">
                 <div class="control">
                     <input
-                        class="input px-4"
+                        class="input"
                         name="search"
-                        placeholder="Buscar por..."
+                        placeholder="Pesquisar por..."
                         maxlength="100"
                         value="{{ search }}"
                     />
                 </div>
                 <div class="control">
-                    <button class="button is-link">
+                    <button
+                        class="button is-link has-tooltip-top"
+                        type="submit"
+                        data-tooltip="Pesquisar"
+                    >
                         <span class="icon">
                             <figure class="image is-16x16">
                                 <img src="{{ static('img:i-search.png') }}" />
@@ -109,6 +112,21 @@
                         </span>
                     </button>
                 </div>
+                {% if search %}
+                    <div class="control">
+                        <a 
+                            class="button is-link is-light has-tooltip-top"
+                            href="{{ view('account:index', search='') }}"
+                            data-tooltip="Resetar"
+                        >
+                            <span class="icon">
+                                <figure class="image is-16x16">
+                                    <img src="{{ static('img:i-clean.png') }}" />
+                                </figure>
+                            </span>
+                        </a>
+                    </div>
+                {% endif %}
             </div>
         </form>
     </footer>

@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, session
 from flask_classful import FlaskView, route
 
 from app.facade import Flash, Response, Url
@@ -8,9 +8,16 @@ from app.service import AccountService
 
 class AccountView(FlaskView):
     def index(self):
-        search = request.args.get("search", "")
-        accounts = AccountService.get_all(search)
-        return Response.as_page("account:index", {"accounts": accounts})
+        is_searching = "search" in request.args
+        if is_searching:
+            args_search = request.args["search"].strip()
+            session["search"] = args_search
+        session_search = session.get("search", "")
+        accounts = AccountService.get_all(session_search)
+        return Response.as_page(
+            "account:index",
+            {"accounts": accounts, "search": session_search},
+        )
 
     def create(self):
         form = AccountForm()

@@ -2,11 +2,13 @@
     text,
     image,
     href,
-    category = 'default'
+    category = 'default',
+    description = none
 ) %}
     <a
-        class="button is-{{ category }}"
+        class="button is-{{ category }} has-tooltip-bottom"
         href="{{ href }}"
+        {% if description %} data-tooltip="{{ description }}" {% endif %}
     >
         <div class="is-flex is-align-items-center">
             <figure class="image is-16x16 mr-2">

@@ -16,13 +16,15 @@
             {{ render_link_button(
                 text='Gerar senha',
                 image=static('img:i-generate-password.png'),
-                href=view('account:generate_password', id=account.id)
+                href=view('account:generate_password', id=account.id),
+                description='Gerar uma nova senha aleatória'
             ) }}
             {{ render_link_button(
                 text='Excluir',
                 image=static('img:i-delete.png'),
                 href=view('account:delete', id=account.id),
-                category='link'
+                category='link',
+                description='Excluir esta conta permanentemente'
             ) }}
         </div>
     </header>
