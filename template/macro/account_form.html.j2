@@ -20,10 +20,7 @@
             {{ render_form_field(
                 form.notes,
                 widget='textarea',
-                help=(
-                    'Adicione uma nota, um lembrete ou qualquer outra ' ~ 
-                    'informação que desejar.'
-                )
+                help='Anote o que julgar necessário.'
             ) }}
             {{ render_form_field(form.username) }}
             <div class="columns">
@@ -36,10 +33,7 @@
             </div>
             {{ render_form_field(
                 form.password,
-                help=(
-                    'Use uma <b>senha forte</b> com, no mínimo, 12 caracteres, ' ~
-                    'incluindo letras maiúsculas, minúsculas, números e símbolos.'
-                ),
+                help='Uma senha forte protege impérios e contas.',
                 margin_bottom=0
             ) }}
         </div>

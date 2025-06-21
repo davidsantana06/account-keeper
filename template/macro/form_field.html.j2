@@ -5,8 +5,15 @@
     help = none,
     margin_bottom = 5
 ) %}
+    {% set label = field.label %}
+    {% set is_required = 'required' in field.flags %}
     <div class="field mb-{{ margin_bottom }}">
-        {{ field.label(class='label is-size-7 has-text-weight-bold') }}
+        <label class="label is-size-7 has-text-weight-bold" for="{{ label.field_id }}">
+            {{ label.text }}
+            {% if is_required %}
+                <span class="has-text-danger">*</span>
+            {% endif %}
+        </label>
         <div class="{{ encapsulation }}">
             {{ field(class=widget) }}
         </div>

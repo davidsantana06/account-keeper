@@ -8,7 +8,6 @@ from app.facade import Password
 class UserForm(FlaskForm):
     name = StringField(
         label="Nome",
-        render_kw={"placeholder": "Nome*"},
         validators=[DataRequired(), Length(min=1, max=60)],
     )
     first_view = SelectField(
@@ -18,6 +17,7 @@ class UserForm(FlaskForm):
             ("account:index", "Contas"),
             ("user:index", "Perfil"),
         ],
+        validators=[DataRequired()],
     )
     password_complexity = SelectField(
         label="Complexidade das senhas",
@@ -26,6 +26,7 @@ class UserForm(FlaskForm):
             (Password.MEDIUM_COMPLEXITY, "Modicus (Média)"),
             (Password.HIGH_COMPLEXITY, "Perplexus (Alta)"),
         ],
+        validators=[DataRequired()],
     )
     zoom = SelectField(
         label="Escala de visualização",
@@ -37,5 +38,6 @@ class UserForm(FlaskForm):
             ("zoom-4", "Olho de Júpiter (140%)"),
             ("zoom-5", "Horizonte do Coliseu (150%)"),
         ],
+        validators=[DataRequired()],
     )
     submit = SubmitField(label="Salvar", render_kw={"disabled": True})
